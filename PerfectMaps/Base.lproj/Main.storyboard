@@ -1,25 +1,100 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PerfectMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NYN-Qd-PMG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pp6-GA-arW">
+                                <rect key="frame" x="0.0" y="500" width="320" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BZe-vx-8jL">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mnh-lp-26n">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="100"/>
+                                                <color key="backgroundColor" red="0.3843137254901961" green="0.40784313725490196" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="Search">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="searchButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7I1-W4-7pa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="headTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gg3-Rg-jiF">
+                                                <rect key="frame" x="160" y="0.0" width="160" height="100"/>
+                                                <color key="backgroundColor" red="0.047058823529411764" green="0.14117647058823529" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="Go">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="directionsButtonTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lt9-tC-K3b"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BZe-vx-8jL" secondAttribute="trailing" id="8iF-zu-IKe"/>
+                                    <constraint firstItem="BZe-vx-8jL" firstAttribute="top" secondItem="Pp6-GA-arW" secondAttribute="top" id="QS8-Pi-fMG"/>
+                                    <constraint firstAttribute="bottom" secondItem="BZe-vx-8jL" secondAttribute="bottom" id="TMr-cC-g3K"/>
+                                    <constraint firstItem="BZe-vx-8jL" firstAttribute="leading" secondItem="Pp6-GA-arW" secondAttribute="leading" id="W90-iV-DVD"/>
+                                    <constraint firstAttribute="height" constant="100" id="jsu-Ce-E00"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pp6-GA-arW" firstAttribute="top" secondItem="NYN-Qd-PMG" secondAttribute="bottom" id="1g2-gh-RMm"/>
+                            <constraint firstItem="NYN-Qd-PMG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5ZT-Se-lBx"/>
+                            <constraint firstItem="Pp6-GA-arW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aXk-dg-hJ4"/>
+                            <constraint firstItem="NYN-Qd-PMG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="iI4-xk-ADo"/>
+                            <constraint firstAttribute="trailing" secondItem="NYN-Qd-PMG" secondAttribute="trailing" id="kXp-S7-7Sb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Pp6-GA-arW" secondAttribute="bottom" id="zZd-UW-cy1"/>
+                            <constraint firstAttribute="trailing" secondItem="Pp6-GA-arW" secondAttribute="trailing" id="zhs-9M-iIF"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="600"/>
+                    <connections>
+                        <outlet property="directionsButton" destination="gg3-Rg-jiF" id="ZBN-aM-mBW"/>
+                        <outlet property="mapView" destination="NYN-Qd-PMG" id="eDa-Ta-eSn"/>
+                        <outlet property="searchDisplayController" destination="RmS-DZ-XHy" id="vrW-kE-vVj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="RmS-DZ-XHy">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="Uye-Yg-WBK"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="RF6-xb-MIw"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="EJ4-OS-Mwy"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="rpc-uy-uLr"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="300" y="333"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Go" width="100" height="100"/>
+        <image name="Search" width="100" height="100"/>
+    </resources>
 </document>
